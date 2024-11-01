@@ -4,9 +4,9 @@ namespace generics
 {
     internal class Program
     {
-        public static IEnumerable<T> Filter<T>(IEnumerable<T> collection, Predicate<T> predicate)
+        public static IEnumerable<T> Filter<T>(IEnumerable<T> source, Predicate<T> predicate)
         {
-            foreach (var item in collection)
+            foreach (var item in source)
             {
                 if (predicate(item))
                 {
@@ -15,9 +15,9 @@ namespace generics
             }
         }
         
-        public static IEnumerable<TResult> Transform<TSource, TResult>(IEnumerable<TSource> collection, Func<TSource, TResult> transformer)
+        public static IEnumerable<TResult> Transform<TSource, TResult>(IEnumerable<TSource> source, Func<TSource, TResult> transformer)
         {
-            foreach (var item in collection)
+            foreach (var item in source)
             {
                 yield return transformer(item);
             }
